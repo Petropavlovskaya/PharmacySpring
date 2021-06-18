@@ -1,5 +1,6 @@
 package by.petropavlovskaja.springpharmacy.config;
 
+import org.springframework.web.context.support.AnnotationConfigWebApplicationContext;
 import org.springframework.web.filter.HiddenHttpMethodFilter;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
@@ -26,6 +27,13 @@ public class MySpringMVCDispatcherServletInitializer extends AbstractAnnotationC
     public void onStartup(ServletContext servletContext) throws ServletException {
         super.onStartup(servletContext);
         registerHiddenFieldFilter(servletContext);
+
+// Maybe it need... //
+
+    AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+    context.register(SpringConfig.class);
+    context.setServletContext(servletContext);
+
     }
 
     // Filter for use Patch, Delete & other Http requests
