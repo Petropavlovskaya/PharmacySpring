@@ -30,9 +30,9 @@ public class MySpringMVCDispatcherServletInitializer extends AbstractAnnotationC
 
 // Maybe it need... //
 
-    AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
-    context.register(SpringConfig.class);
-    context.setServletContext(servletContext);
+//    AnnotationConfigWebApplicationContext context = new AnnotationConfigWebApplicationContext();
+//    context.register(SpringConfig.class);
+//    context.setServletContext(servletContext);
 
     }
 

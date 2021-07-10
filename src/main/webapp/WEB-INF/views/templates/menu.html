@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en" >
+
+<body>
+<div class="menu" th:fragment="menu">
+    <ul class="menu-v">
+        <li><a th:href="@{/main}"> <br>[[#{label.menu.main}]] <br><br> </a></li>
+        <li><a th:href="@{/medicine}"> <br>[[#{label.menu.medicine}]] <br><br> </a></li>
+
+        <li th:unless="${login}"><a th:href="@{/accounts/signup}"> <br>[[#{label.menu.signup}]] <br><br> </a></li>
+        <li th:unless="${login}"><a th:href="@{/accounts/login}"> <br>[[#{label.menu.login}]] <br><br></a></li>
+
+        <li th:if="${login}"><a th:href="@{/accounts/logout}"> <br>[[#{label.menu.logout}]] <br><br> </a></li>
+    </ul>
+</div>
+
+<div class="menu" th:fragment="menu_customer">
+    <ul class="menu-v">
+        <li><a th:href="@{/customers/main}"> <br>[[#{label.menu.main}]] <br><br> </a></li>
+        <li><span><br>[[#{label.menu.medicine}]]<br><br></span>
+            <ul>
+                <li><a th:href="@{/customers/medicine/list}"> <br>[[#{label.menu.drugList}]]<br><br> </a></li>
+                <li><a th:href="@{/customers/medicine/favorite}"> <br>[[#{label.menu.favorite}]]<br><br> </a></li>
+            </ul>
+        </li>
+
+        <li><span><br>[[#{label.menu.cabinet}]]<br><br></span>
+            <ul>
+                <li><a th:href="@{/customers/cabinet/profile}"><br>[[#{label.menu.profile}]]<br><br></a></li>
+                <li><a th:href="@{/customers/cabinet/cart}"><br>[[#{label.menu.cart}]]<br><br></a></li>
+                <li><a th:href="@{/customers/cabinet/history}"><br>[[#{label.menu.ordersHistory}]]<br><br></a></li>
+                <li><a th:href="@{/customers/cabinet/recipe}"><br>[[#{label.menu.recipe}]]<br><br></a></li>
+            </ul>
+        </li>
+
+        <li><a th:href="@{/accounts/logout}"> <br>[[#{label.menu.logout}]] <br><br> </a></li>
+    </ul>
+</div>
+
+<div class="menu" th:fragment="menu_doctor">
+    <ul class="menu-v">
+        <li><a th:href="@{/doctors/main}"> <br>[[#{label.menu.main}]] <br><br> </a></li>
+        <li><span><br>[[#{label.menu.medicine}]]<br><br></span>
+            <ul>
+                <li><a th:href="@{/doctors/medicine/list}"> <br>[[#{label.menu.drugList}]]<br><br> </a></li>
+            </ul>
+        </li>
+
+        <li><span><br>[[#{label.menu.recipe}]]<br><br></span>
+            <ul>
+                <li><a th:href="@{/doctors/recipe/create}"> <br>[[#{label.menu.createRecipe}]]<br><br> </a></li>
+                <li><a th:href="@{/doctors/recipe/ordered}"> <br>[[#{label.menu.recipeOrders}]]<br><br> </a></li>
+                <li><a th:href="@{/doctors/recipe/history}"> <br>[[#{label.menu.recipeHistory}]]<br><br> </a></li>
+            </ul>
+        </li>
+
+        <li><span><br>[[#{label.menu.cabinet}]]<br><br></span>
+            <ul>
+                <li><a th:href="@{/doctors/cabinet/profile}"><br>[[#{label.menu.profile}]]<br><br></a></li>
+            </ul>
+        </li>
+
+        <li><a th:href="@{/accounts/logout}"> <br>[[#{label.menu.logout}]] <br><br> </a></li>
+    </ul>
+</div>
+
+<div class="menu" th:fragment="menu_pharmacist">
+    <ul class="menu-v">
+        <li><a th:href="@{/pharmacists/main}"> <br>[[#{label.menu.main}]] <br><br> </a></li>
+        <li><span><br>[[#{label.menu.medicine}]]<br><br></span>
+            <ul>
+                <li><a th:href="@{/pharmacists/medicine/list}"> <br>[[#{label.menu.drugList}]]<br><br> </a></li>
+                <li><a th:href="@{/pharmacists/medicine/create}"> <br>[[#{label.menu.addMedicine}]]<br><br> </a></li>
+                <li><a th:href="@{/pharmacists/medicine/expired}"> <br>[[#{label.menu.expiredMedicine}]]<br><br> </a></li>
+            </ul>
+        </li>
+
+        <li><span><br>[[#{label.menu.cabinet}]]<br><br></span>
+            <ul>
+                <li><a th:href="@{/pharmacists/cabinet/profile}"><br>[[#{label.menu.profile}]]<br><br></a></li>
+            </ul>
+        </li>
+
+        <li><a th:href="@{/accounts/logout}"> <br>[[#{label.menu.logout}]] <br><br> </a></li>
+    </ul>
+</div>
+</body>
+</html>

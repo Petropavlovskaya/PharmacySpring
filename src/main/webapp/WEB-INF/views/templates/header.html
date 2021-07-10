@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<div  id="logo" th:fragment="header" align="center">
+    <img class="img-center" src="resources/img/logo.gif" alt="Main logotype"/>
+    <img class="img-left" src="resources/img/doctor.gif" alt="Doctor image"/>
+
+    <div align="right" th:switch="#{lang}">
+        <label class="language">
+
+            <p th:case="'ru'">
+                <input class="ru" type="radio" name="lang"><a href="?lang=pl">
+                <img src="resources/img/PL.jpg" alt="PL"></a>
+                <input class="en" type="radio" name="lang"><a href="?lang=en">
+                <img src="resources/img/EN.jpg" alt="EN"></a>
+            </p>
+
+            <p th:case="'en'">
+                <input class="ru" type="radio" name="lang"><a href="?lang=ru">
+                <img src="resources/img/RU.jpg" alt="RU"></a>
+                <input class="pl-en" type="radio" name="lang"><a href="?lang=pl">
+                <img src="resources/img/PL.jpg" alt="PL"></a>
+            </p>
+
+            <p th:case="'pl'">
+                <input class="ru" type="radio" name="lang"><a href="?lang=ru">
+                <img src="resources/img/RU.jpg" alt="RU"></a>
+                <input class="en" type="radio" name="lang"><a href="?lang=en">
+                <img src="resources/img/EN.jpg" alt="EN"></a>
+            </p>
+
+        </label>
+    </div>
+
+    <!--<div th:switch="${user.role}">
+        <p th:case="'admin'">User is an administrator</p>
+        <p th:case="#{roles.manager}">User is a manager</p>
+        <p th:case="*">User is some other thing</p>
+    </div>-->
+</div>
+
+</body>
+</html>
+
+

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<persistence version="2.0"
+             xmlns="http://java.sun.com/xml/ns/persistence"
+             xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+             xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
+    <persistence-unit name="OnlinePharmacy" transaction-type="RESOURCE_LOCAL">
+
+        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
+
+        <!--     what classes we wear with DB tables:  -->
+        <class>by.petropavlovskaja.springpharmacy.entity.Account</class>
+        <class>by.petropavlovskaja.springpharmacy.entity.AccountRole</class>
+        <class>by.petropavlovskaja.springpharmacy.entity.Login</class>
+<!--        <class>com.epam.entity.Post</class>-->
+<!--        <class>com.epam.entity.PostComment</class>-->
+        <!--    <class>com.epam.entity.Person</class>-->
+        <properties>
+            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
+            <property name="javax.persistence.jdbc.url"
+                      value="jdbc:postgresql://localhost:5432/pharmacy_spring"/> <!-- BD Mane -->
+            <property name="javax.persistence.jdbc.user" value="pharmacy"/> <!-- DB User -->
+            <property name="javax.persistence.jdbc.password" value="pharmacy"/> <!-- DB Password -->
+            <property name="hibernate.enable_lazy_load_no_trans" value="true"/> <!-- DB Password -->
+        </properties>
+
+    </persistence-unit>
+
+</persistence>
