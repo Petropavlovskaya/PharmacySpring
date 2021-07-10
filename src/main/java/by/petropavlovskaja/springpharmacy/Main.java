@@ -32,13 +32,13 @@ public class Main {
     private static void testCreateAccount(IAccountDao accountDao){
         List<AccountRole> roleList = AccountRoleDao.getAllAccountRole();
         Account account = new Account();
-        account.setSurname("Pavlovich1");
+        account.setSurname("Pavlovich2");
         account.setName("Pavel1");
         account.setPhone("123456");
         account.setRole(getRole(roleList, "customer"));
 
         Login login = new Login();
-        login.setLogin("Pavlusha1");
+        login.setLogin("Pavlusha2");
         login.setPassword("123456987");
         login.setSalt("123qwerty");
 
