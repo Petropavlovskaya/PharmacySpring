@@ -19,7 +19,7 @@ public class Main {
             System.out.println("Account wasn't found");
         }*/
 
-        System.out.println(accountDao.getAllAccounts());
+//        System.out.println(accountDao.getAllAccounts());
         System.out.println("Trying to create Account");
 
         testCreateAccount(accountDao);

@@ -1,11 +1,14 @@
 package by.petropavlovskaja.springpharmacy.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.EnableAspectJAutoProxy;
+import org.springframework.context.annotation.EnableLoadTimeWeaving;
 import org.springframework.context.support.ResourceBundleMessageSource;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
@@ -31,6 +34,19 @@ import java.util.Locale;
 public class SpringConfig implements WebMvcConfigurer {
 
     private final ApplicationContext applicationContext;
+
+    @Value("${db.driverClassName}")
+    private static String dbDriver;
+
+    @Value("${db.url}")
+    private static String dbUrl;
+
+    @Value("${db.username}")
+    private static String dbUsername;
+
+    @Value("${db.password}")
+    private static String dbPassword;
+
 
     @Autowired
     public SpringConfig(ApplicationContext applicationContext) {
@@ -66,10 +82,10 @@ public class SpringConfig implements WebMvcConfigurer {
     @Bean
     public DataSource dataSource() {
         DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.postgresql.Driver");
-        dataSource.setUrl("jdbc:postgresql://localhost:5432/spring_courses");
-        dataSource.setUsername("postgres");
-        dataSource.setPassword("allesia");
+        dataSource.setDriverClassName(dbDriver);
+        dataSource.setUrl(dbUrl);
+        dataSource.setUsername(dbUsername);
+        dataSource.setPassword(dbPassword);
         return dataSource;
     }
 
